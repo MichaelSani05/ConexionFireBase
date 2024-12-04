@@ -1,0 +1,27 @@
+
+nav{
+    background-color: #2B2738;
+    height: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    height: 100%;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100%;
+}

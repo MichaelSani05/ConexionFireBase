@@ -1,0 +1,66 @@
+
+<div id="main-container">
+    <div id="form-selector">
+        <button id="button1" type="button">Solicitar Trabajo</button>
+        <button id="button2" type="button">Ofrecer Trabajo</button>
+    </div>
+    <div id="dynamic-form">
+        <div id="hero-1">
+            <img src="../../assets/images/form-image.jpg" alt="">
+        </div>
+        <div id="form">
+            <form class="form" [formGroup]="form" (ngSubmit)="solicitarSubmit()">
+                <p id="title">Solicitar Trabajo</p>
+                <div id="group-1" class="input-group">
+                    <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre" required >
+                </div>
+                <div id="group-2" class="input-group ">
+                    <input type="text" formControlName="apellidos" id="apellidos" placeholder="Apellidos" required >
+                </div>
+                <div id="group-3" class="input-group ">
+                    <input type="poblacion" formControlName="poblacion" id="poblacion" placeholder="Población" required >
+                </div>
+                <div id="group-4" class="input-group ">
+                    <select title="Trabajo" formControlName="trabajo" id="trabajo" required >
+                        <option value="Técnico Informático">Técnico Informático</option>
+                        <option value="Gestor de BBDD">Gestor de BBDD</option>
+                        <option value="Consultor Informático">Consultor Informático</option>
+                        <option value="Asesor Financiero">Asesor Financiero</option>
+                    </select>
+                </div>
+                <div id="group-5" class="input-group ">
+                    <input type="email" formControlName="email" id="email" placeholder="Email" required >
+                </div>
+                <button id="solicitar" type="submit" class="solicitar" [disabled]="form.invalid">Solicitar</button>
+            </form>
+        </div>
+        <div id="form2">
+            <form class="form" [formGroup]="form2" (ngSubmit)="ofrecerSubmit()">
+                <p id="title">Ofrecer Trabajo</p>
+                <div id="group-6" class="input-group">
+                    <input type="text" formControlName="empresa" id="empresa" placeholder="Empresa" required >
+                </div>
+                <div id="group-7" class="input-group ">
+                    <input type="text" formControlName="empleo" id="empleo" placeholder="Empleo" required >
+                </div>
+                <div id="group-8" class="input-group ">
+                    <input type="text" formControlName="poblacion2" id="poblacion" placeholder="Población" required >
+                </div>
+                <div id="group-9" class="input-group ">
+                    <input type="text" formControlName="experiencia" id="experiencia" placeholder="Experiencia" required >
+                </div>
+                <div id="group-10" class="input-group ">
+                    <input type="text" formControlName="salario" id="salario" placeholder="Salario" required >
+                </div>
+                <div id="group-11" class="input-group ">
+                    <input type="text" formControlName="requerimientos" id="requerimientos" placeholder="Requerimientos" required >
+                </div>
+                <div id="group-12" class="input-group ">
+                    <input type="email" formControlName="email2" id="email" placeholder="Email" required >
+                </div>
+                <button id="ofrecer" type="submit" class="solicitar" [disabled]="form2.invalid">Ofrecer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
