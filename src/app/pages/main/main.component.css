@@ -27,7 +27,7 @@
 }
 
 #banner h1{
-    font-size: 75pt;
+    font-size: clamp(20px, 8vw, 100px);
     text-align: left;
     color: white;
 }
