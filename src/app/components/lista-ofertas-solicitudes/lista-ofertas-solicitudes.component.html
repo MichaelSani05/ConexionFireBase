@@ -1,0 +1,12 @@
+<ul>
+    <li class="oferta" *ngFor="let item of items">
+      <ng-template ngIf="oferta">
+        {{item.empleo}}
+      </ng-template>
+      <ng-template ngIf="solicitud">
+        {{item.trabajo}}
+      </ng-template>
+      
+    </li>
+</ul>
+

@@ -1,0 +1,14 @@
+.solicitud{
+    margin: 0px 15px;
+    padding: 20px;
+    list-style: none;
+    color: white;
+    background-color: #6d5135;
+    width: 200px;
+    border-radius: 15px;
+    font-size: 14pt;
+}
+ul{
+    display: flex;
+    padding: 0;
+}

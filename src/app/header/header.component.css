@@ -1,9 +1,17 @@
 
 nav{
-    background-color: #2B2738;
     height: 100px;
     padding: 15px;
     box-sizing: border-box;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #000000;
+    animation: nav linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
 }
 
 ul{
@@ -12,6 +20,12 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+}
+
+ul > a{
+    padding: 0px 15px;
+    font-size: 14pt;
 }
 
 #logo{
@@ -24,4 +38,22 @@ ul{
 
 img{
     width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+@keyframes nav {
+    from{
+        height: 100px;
+    }
+    to{
+        height: 75px;
+        background: rgba(43, 39, 56, 0.7);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
 }

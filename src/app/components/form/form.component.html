@@ -1,5 +1,4 @@
-
-<div id="main-container">
+<div id="form-container">
     <div id="form-selector">
         <button id="button1" type="button">Solicitar Trabajo</button>
         <button id="button2" type="button">Ofrecer Trabajo</button>
@@ -21,8 +20,9 @@
                     <input type="poblacion" formControlName="poblacion" id="poblacion" placeholder="Población" required >
                 </div>
                 <div id="group-4" class="input-group ">
-                    <select title="Trabajo" formControlName="trabajo" id="trabajo" required >
-                        <option value="Técnico Informático">Técnico Informático</option>
+                    <select title="Trabajo" formControlName="trabajo" id="trabajo" required>
+                        <option value="Técnico Informático" [defaultSelected]="defaultSelected">Choose an option...</option>
+                        <option value="Técnico Informático" >Técnico Informático</option>
                         <option value="Gestor de BBDD">Gestor de BBDD</option>
                         <option value="Consultor Informático">Consultor Informático</option>
                         <option value="Asesor Financiero">Asesor Financiero</option>
@@ -63,4 +63,3 @@
         </div>
     </div>
 </div>
-

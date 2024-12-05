@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { Database, ref, push, DatabaseInstances } from '@angular/fire/database';
+import { Database, ref, push } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
-import { timer } from 'rxjs';
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-form',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.css',
+  templateUrl: './form.component.html',
+  styleUrl: './form.component.css',
   providers: [FormBuilder]
 })
-export class MainComponent {
+export class FormComponent {
   form: FormGroup;
   form2: FormGroup;
+  defaultSelected: any = true
   private solicitar = true;
 
   constructor(private db: Database, private fb: FormBuilder, private fb2: FormBuilder) {
@@ -30,6 +30,8 @@ export class MainComponent {
       empleo: ['', Validators.required],
       poblacion2: ['', Validators.required],
       experiencia: ['', Validators.required],
+      salario: ['', Validators.required],
+      requerimientos: ['', Validators.required],
       email2: ['', [Validators.required, Validators.email]],
     });
 
@@ -38,20 +40,10 @@ export class MainComponent {
   ngOnInit() {
     const button1 = document.getElementById('button1');
     const button2 = document.getElementById('button2');
-    const solicitar = document.getElementById('solicitar');
-    const ofrecer = document.getElementById('ofrecer');
 
     if (button1 && button2) {
       button1.addEventListener('click', () => this.solicitarForm());
       button2.addEventListener('click', () => this.ofrecerForm());
-    }
-
-    if (solicitar) {
-      solicitar.addEventListener('click', () => this.solicitarSubmit())
-    }
-    
-    if (ofrecer) {
-      ofrecer.addEventListener('click', () => this.ofrecerSubmit())
     }
 
   }
@@ -68,9 +60,9 @@ export class MainComponent {
   }
 
   ofrecerSubmit() {
-    const { empresa, empleo, poblacion2, experiencia, email2 } = this.form2.value;
+    const { empresa, empleo, poblacion2, experiencia, salario, requerimientos, email2 } = this.form2.value;
     const ofertasRef = ref(this.db, 'ofertas');
-    push(ofertasRef, { empresa, empleo, poblacion2, experiencia, email2 })
+    push(ofertasRef, { empresa, empleo, poblacion2, experiencia, salario, requerimientos, email2 })
       .then(() => {
         console.log('Oferta añadida correctamente a la base de datos.');
         this.form2.reset();
@@ -92,8 +84,10 @@ export class MainComponent {
         form.style.opacity = "0";
         hero1.style.transform = "translateX(100%)";
         this.solicitar = false;
-        button2.style.backgroundColor = "#635D75";
-        button1.style.backgroundColor = "#2B2738";
+        button2.style.backgroundColor = "#c5ad95";
+        button2.style.color = "white";
+        button1.style.backgroundColor = "#6d5135";
+        button1.style.color = "#cacaca";
         console.log("Solicitar cambiado a Ofrecer");
         setTimeout(form2.style.display = "flex", 0);
         setTimeout(form2.style.opacity = "1", 200);
@@ -118,8 +112,10 @@ export class MainComponent {
         form.style.transform = "translateX(0%)";
         form.style.opacity = "1";
         hero1.style.transform = "translateX(0%)";
-        button1.style.backgroundColor = "#635D75";
-        button2.style.backgroundColor = "#2B2738";
+        button1.style.backgroundColor = "#c5ad95";
+        button2.style.backgroundColor = "#6d5135";
+        button1.style.color = "white";
+        button2.style.color = "#cacaca";
         this.solicitar = true;
         setTimeout(form.style.display = "flex", 200);
         setTimeout(form2.style.opacity = "0", 200);
