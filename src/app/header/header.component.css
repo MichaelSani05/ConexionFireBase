@@ -57,3 +57,32 @@ a{
         border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
 }
+
+@keyframes nav2 {
+    from{
+        height: 75px;
+    }
+    to{
+        height: 50px;
+        background: rgba(23, 53, 19, 0.7);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+}
+
+
+@media screen and (max-width: 692px) {
+    ul > a{
+        font-size: 9pt;
+    }
+
+    nav{
+        height: 50px;
+        align-items: center;
+        animation: nav2 linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 200px;
+    }
+
+}

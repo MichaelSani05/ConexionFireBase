@@ -23,9 +23,12 @@
 
 #footer-row1{
     display: flex;
+    justify-content: space-evenly;
 }
 
 #newsletter{
+    display: flex;
+    flex-direction: column;
     width: 40%;
 }
 
@@ -35,7 +38,7 @@
     --font-color: #173513;
     --font-color-sub: #173513;
     --bg-color: #ACB68A;
-    --main-color: #fefefe;
+    --main-color: #173513;
     width: 200px;
     height: 40px;
     border-radius: 5px;
@@ -57,3 +60,69 @@
   .input:focus {
     border: 2px solid var(--input-focus);
   }
+
+  button {
+    height: 54px;
+    background: #173513;
+    font-family: inherit;
+    padding: 5px 10px;
+    font-weight: 900;
+    font-size: 18px;
+    border: 2px solid #ACB68A;
+    border-radius: 0.4em;
+    cursor: pointer;
+    box-shadow: 4px 4px #173513;
+    color: #ACB68A;
+  }
+  
+  
+  button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px;
+  }
+
+  #footer-gif{
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #173513;
+  }
+
+  #footer-gif img{
+    height: 100%;
+  }
+
+  @media screen and (max-width: 972px) {
+    #footer-gif{
+        display: none;
+    }
+
+    #newsletter, #footer-menu{
+        width: 50%;
+    }
+
+    .input{
+        width: 150px;
+    }
+
+  }
+
+  @media screen and (max-width: 692px) {
+    
+    #footer-row1{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #newsletter, #footer-menu{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .input{
+        width: 150px;
+    }
+
+  }
+  
