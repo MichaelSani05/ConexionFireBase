@@ -84,9 +84,9 @@ export class FormComponent {
         form.style.opacity = "0";
         hero1.style.transform = "translateX(100%)";
         this.solicitar = false;
-        button2.style.backgroundColor = "#c5ad95";
+        button2.style.backgroundColor = "#ACB68A";
         button2.style.color = "white";
-        button1.style.backgroundColor = "#6d5135";
+        button1.style.backgroundColor = "#173513";
         button1.style.color = "#cacaca";
         console.log("Solicitar cambiado a Ofrecer");
         setTimeout(form2.style.display = "flex", 0);
@@ -112,8 +112,8 @@ export class FormComponent {
         form.style.transform = "translateX(0%)";
         form.style.opacity = "1";
         hero1.style.transform = "translateX(0%)";
-        button1.style.backgroundColor = "#c5ad95";
-        button2.style.backgroundColor = "#6d5135";
+        button1.style.backgroundColor = "#ACB68A";
+        button2.style.backgroundColor = "#173513";
         button1.style.color = "white";
         button2.style.color = "#cacaca";
         this.solicitar = true;
@@ -123,8 +123,6 @@ export class FormComponent {
         console.log("Ofrecer cambiado a Solicitar");
       }
     }
-
-
   }
 
 }

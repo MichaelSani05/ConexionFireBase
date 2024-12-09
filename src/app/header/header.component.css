@@ -8,7 +8,7 @@ nav{
     top: 0;
     z-index: 999;
     width: 100%;
-    background-color: #000000;
+    background-color: #173513;
     animation: nav linear both;
     animation-timeline: scroll(root);
     animation-range: 0 200px;
@@ -51,7 +51,7 @@ a{
     }
     to{
         height: 75px;
-        background: rgba(43, 39, 56, 0.7);
+        background: rgba(23, 53, 19, 0.7);
         backdrop-filter: blur( 7.5px );
         -webkit-backdrop-filter: blur( 7.5px );
         border: 1px solid rgba( 255, 255, 255, 0.18 );

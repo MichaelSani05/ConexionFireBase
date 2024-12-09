@@ -1,0 +1,59 @@
+#footer-container{
+    width: 100%;
+    background-color: #ACB68A;
+    color: #173513;
+    margin: 0;
+    padding: 30px 50px;
+    box-sizing: border-box;
+}
+
+#footer-menu{
+    width: 25%;
+}
+
+#footer-menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footer-menu > ul > li{
+    margin: 15px 0px;
+}
+
+#footer-row1{
+    display: flex;
+}
+
+#newsletter{
+    width: 40%;
+}
+
+
+.input {
+    --input-focus: #fefefe;
+    --font-color: #173513;
+    --font-color-sub: #173513;
+    --bg-color: #ACB68A;
+    --main-color: #fefefe;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border: 2px solid var(--input-focus);
+  }
