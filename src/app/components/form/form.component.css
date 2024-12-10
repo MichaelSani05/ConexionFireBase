@@ -225,6 +225,7 @@ input{
 
     .form{
       gap: 15px !important;
+      width: 100%;
     }
 
     #form2{
