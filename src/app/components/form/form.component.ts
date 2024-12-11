@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular
 export class FormComponent {
   form: FormGroup;
   form2: FormGroup;
-  defaultSelected: any = true
+  defaultSelected: any = true;
   private solicitar = true;
 
   constructor(private db: Database, private fb: FormBuilder, private fb2: FormBuilder) {
@@ -34,7 +34,6 @@ export class FormComponent {
       requerimientos: ['', Validators.required],
       email2: ['', [Validators.required, Validators.email]],
     });
-
   }
 
   ngOnInit() {
@@ -45,7 +44,6 @@ export class FormComponent {
       button1.addEventListener('click', () => this.solicitarForm());
       button2.addEventListener('click', () => this.ofrecerForm());
     }
-
   }
 
   solicitarSubmit() {
