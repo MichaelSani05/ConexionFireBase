@@ -11,25 +11,25 @@
             <form class="form" [formGroup]="form" (ngSubmit)="solicitarSubmit()">
                 <p id="title">Solicitar Trabajo</p>
                 <div id="group-1" class="input-group">
-                    <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre" required >
-                </div>
-                <div id="group-2" class="input-group ">
-                    <input type="text" formControlName="apellidos" id="apellidos" placeholder="Apellidos" required >
+                    <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre y apellidos" required >
                 </div>
                 <div id="group-3" class="input-group ">
-                    <input type="poblacion" formControlName="poblacion" id="poblacion" placeholder="Población" required >
+                    <input type="text" formControlName="poblacion" id="poblacion" placeholder="Población" required >
                 </div>
                 <div id="group-4" class="input-group ">
-                    <select title="Trabajo" formControlName="trabajo" id="trabajo" required>
-                        <option value="Técnico Informático" [defaultSelected]="defaultSelected">Choose an option...</option>
-                        <option value="Técnico Informático" >Técnico Informático</option>
-                        <option value="Gestor de BBDD">Gestor de BBDD</option>
-                        <option value="Consultor Informático">Consultor Informático</option>
-                        <option value="Asesor Financiero">Asesor Financiero</option>
-                    </select>
+                    <input type="text" formControlName="trabajo" id="trabajo" placeholder="Trabajo" required >
                 </div>
                 <div id="group-5" class="input-group ">
                     <input type="email" formControlName="email" id="email" placeholder="Email" required >
+                </div>
+                <div id="group-5-2" class="input-group ">
+                    <input type="text" formControlName="capacidades" id="capacidades" placeholder="Capacidades" required >
+                </div>
+                <div id="group-5-3" class="input-group ">
+                    <input type="text" formControlName="telefono" id="telefono" placeholder="Telefono" required >
+                </div>
+                <div id="group-5-4" class="input-group ">
+                    <input type="text" formControlName="experiencia" id="experiencia" placeholder="Experiencia" required >
                 </div>
                 <button id="solicitar" type="submit" class="solicitar" [disabled]="form.invalid">Solicitar</button>
             </form>

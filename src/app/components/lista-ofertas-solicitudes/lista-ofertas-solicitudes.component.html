@@ -1,11 +1,19 @@
 <ul>
-    <li class="oferta" *ngFor="let item of items">
+    <li class="lista-O-S" *ngFor="let item of items">
       <ng-template ngIf="oferta">
         {{item.empleo}}
+        {{item.empresa}}
+        {{item.experiencia}}
+        {{item.poblacion2}}
+        {{item.requerimientos}}
+        {{item.salario}}
       </ng-template>
       <ng-template ngIf="solicitud">
+        {{item.nombre}}
+        {{item.apellidos}}
         {{item.trabajo}}
+        {{item.email}}
+        {{item.poblacion}}
       </ng-template>
     </li>
 </ul>
-

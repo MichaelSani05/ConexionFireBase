@@ -19,10 +19,12 @@ export class FormComponent {
   constructor(private db: Database, private fb: FormBuilder, private fb2: FormBuilder) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
-      apellidos: ['', Validators.required],
       poblacion: ['', Validators.required],
       trabajo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      capacidades: ['', [Validators.required]],
+      telefono: ['', [Validators.required]],
+      experiencia: ['', [Validators.required]],
     });
     
     this.form2 = this.fb2.group({
@@ -47,9 +49,9 @@ export class FormComponent {
   }
 
   solicitarSubmit() {
-    const { nombre, apellidos, poblacion, trabajo, email } = this.form.value;
+    const { nombre, poblacion, trabajo, email, capacidades, telefono } = this.form.value;
     const solicitudesRef = ref(this.db, 'solicitudes');
-    push(solicitudesRef, { nombre, apellidos, poblacion, trabajo, email })
+    push(solicitudesRef, { nombre, poblacion, trabajo, email, capacidades, telefono })
       .then(() => {
         console.log('Solicitud añadida correctamente a la base de datos.');
         this.form.reset();

@@ -29,9 +29,9 @@ export class DataService {
     });
   }
 
-  getFilteredItems(): Observable<any[]> {
-    const dbRef = ref(this.database, 'ofertas');
-    const filteredQuery = query(dbRef, orderByChild('empleo'));
+  getFilteredItems(tabla: string, filtro: string): Observable<any[]> {
+    const dbRef = ref(this.database, tabla);
+    const filteredQuery = query(dbRef, orderByChild(filtro));
 
     return new Observable((observer) => {
       onValue(filteredQuery, (snapshot) => {
