@@ -49,9 +49,15 @@ export class FormComponent {
   }
 
   solicitarSubmit() {
-    const { nombre, poblacion, trabajo, email, capacidades, telefono } = this.form.value;
+    const fechaSinFormato = new Date(Date.now());
+    const dia = fechaSinFormato.getDate().toString().padStart(2, '0');
+    const mes = (fechaSinFormato.getMonth() + 1).toString().padStart(2, '0');
+    const año = fechaSinFormato.getFullYear();
+    
+    const fecha = `${dia}/${mes}/${año}`;
+    const { nombre, poblacion, trabajo, email, capacidades, telefono, experiencia } = this.form.value;
     const solicitudesRef = ref(this.db, 'solicitudes');
-    push(solicitudesRef, { nombre, poblacion, trabajo, email, capacidades, telefono })
+    push(solicitudesRef, { nombre, poblacion, trabajo, email, capacidades, telefono, experiencia, fecha })
       .then(() => {
         console.log('Solicitud añadida correctamente a la base de datos.');
         this.form.reset();

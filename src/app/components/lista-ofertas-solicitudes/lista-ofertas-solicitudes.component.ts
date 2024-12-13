@@ -17,14 +17,6 @@ export class ListaOfertasComponent implements OnInit{
 
   constructor(private dataService: DataService) {
     
-    if (this.tabla == 'ofertas') {
-      this.oferta = true
-      this.solicitud = false
-    } else if (this.tabla == 'solicitudes') {
-      this.oferta = false
-      this.solicitud = true
-    }
-
   }
 
   ngOnInit() {
@@ -36,6 +28,14 @@ export class ListaOfertasComponent implements OnInit{
         console.error('Error al recuperar datos', error);
       }
     });
+
+    if (this.tabla == 'ofertas') {
+      this.oferta = true
+      this.solicitud = false
+    } else if (this.tabla == 'solicitudes') {
+      this.oferta = false
+      this.solicitud = true
+    }
 
   }
 }
