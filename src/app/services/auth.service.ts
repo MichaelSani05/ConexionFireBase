@@ -3,12 +3,11 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 import { Database, ref, set, get, update } from '@angular/fire/database';
 import { Observable, from, of } from 'rxjs';
 import { signal } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 export interface UserProfile {
   uid?: string;
-  email: string;
-  fullName: string;
+  email: string | null;
+  fullName?: string;
   phoneNumber?: string;
   createdAt?: number;
 }
@@ -20,7 +19,6 @@ export class AuthService {
   private auth = inject(Auth);
   private database = inject(Database);
 
-  // Señal para estado de autenticación
   public user = signal<UserProfile | null>(null);
 
   register(email: string, password: string, profile: UserProfile): Observable<any> {
@@ -28,15 +26,15 @@ export class AuthService {
       createUserWithEmailAndPassword(this.auth, email, password)
         .then(async (credentials) => {
           const userProfile: UserProfile = {
-            ...profile,
             uid: credentials.user.uid,
+            email: credentials.user.email,
+            fullName: profile.fullName || '',
             createdAt: Date.now()
           };
-
-          // Guardar perfil en Realtime Database
+  
           const userRef = ref(this.database, `users/${credentials.user.uid}`);
           await set(userRef, userProfile);
-
+  
           this.user.set(userProfile);
           return credentials.user;
         })
@@ -47,7 +45,6 @@ export class AuthService {
     return from(
       signInWithEmailAndPassword(this.auth, email, password)
         .then(async (credentials) => {
-          // Obtener datos del usuario desde Realtime Database
           const userRef = ref(this.database, `users/${credentials.user.uid}`);
           const snapshot = await get(userRef);
           
@@ -55,7 +52,6 @@ export class AuthService {
             const userProfile = snapshot.val() as UserProfile;
             this.user.set(userProfile);
           } else {
-            // Crear perfil si no existe (opcional)
             const newProfile: UserProfile = {
               uid: credentials.user.uid,
               email: credentials.user.email || '',
@@ -91,7 +87,6 @@ export class AuthService {
       const unsubscribe = this.auth.onAuthStateChanged(
         async user => {
           if (user) {
-            // Obtener perfil desde Realtime Database
             const userRef = ref(this.database, `users/${user.uid}`);
             const snapshot = await get(userRef);
             

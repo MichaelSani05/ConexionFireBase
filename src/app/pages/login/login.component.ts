@@ -32,11 +32,9 @@ export class LoginComponent {
       
       this.authService.login(email, password).subscribe({
         next: () => {
-          // Navegar al dashboard o página principal
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          // Manejar errores de inicio de sesión
           this.errorMessage = this.getErrorMessage(error.code);
         }
       });

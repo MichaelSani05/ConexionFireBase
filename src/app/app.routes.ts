@@ -5,6 +5,7 @@ import { ConsultarOfertasComponent } from './pages/consultar-ofertas/consultar-o
 import { ConsultarSolicitudesComponent } from './pages/consultar-solicitudes/consultar-solicitudes.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 export const routes: Routes = [
     {path: "", component: MainComponent},
@@ -14,4 +15,5 @@ export const routes: Routes = [
     {path: "ConsultarSolicitudes", component: ConsultarSolicitudesComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
+    {path: "perfil", component: PerfilComponent},
 ];
