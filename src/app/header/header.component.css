@@ -45,6 +45,27 @@ a{
     color: inherit;
 }
 
+#login{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    bottom: 50%;
+}
+
+#login button{
+    height: 40px;
+    background-color: #ACB68A;
+    border: 1px solid #173513;
+    border-radius: 20px;
+    color: #173513;
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 10px;
+    cursor: pointer;
+}
+
 @keyframes nav {
     from{
         height: 100px;

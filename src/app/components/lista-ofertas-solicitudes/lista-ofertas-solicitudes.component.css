@@ -100,4 +100,9 @@ option{
     background-color: #ACB68A;
     border: 1px solid #173513;
     border-radius: 20px;
+    color: white;
+}
+
+option:hover, option:focus, option:active{
+    background-color: #173513 !important;
 }
