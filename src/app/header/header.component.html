@@ -9,7 +9,10 @@
         <a href="" [routerLink]="['']">
             <li>Home</li>
         </a>
-        <a href="" [routerLink]="['/Formularios']">
+        <a *ngIf="userExist" href="" [routerLink]="['/Formularios']">
+            <li>Formularios</li>
+        </a>
+        <a *ngIf="!userExist" href="" [routerLink]="['/login']">
             <li>Formularios</li>
         </a>
         <a href="" [routerLink]="['/ConsultarOfertas']">
@@ -19,11 +22,13 @@
             <li>Solicitudes</li>
         </a>
     </ul>
-    <div id="login">
+    <div id="login" *ngIf="!userExist">
         <a [routerLink]="['/login']"><button type="button">Iniciar sesión</button></a>
     </div>
-    <div id="perfil">
+    <div id="logOut" *ngIf="userExist">
+        <a [routerLink]="['']"><button (click)="logout()" type="button">Cerrar sesión</button></a>
+    </div>
+    <div id="perfil" *ngIf="userExist">
         <a [routerLink]="['/perfil']"><img src="../../assets/images/user-icon.jpeg" alt=""></a>
     </div>
-
 </nav>

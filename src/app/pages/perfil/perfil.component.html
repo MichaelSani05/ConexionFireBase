@@ -1,4 +1,28 @@
 <div id="perfil-container">
-    <p>{{nombreUsuario}}</p>
-    <p>{{correoUsuario}}</p>
+    <div id="perfil-banner">
+        <div id="perfil-banner-content">
+            <div id="perfil-image">
+                <img src="../../../assets/images/user-icon.jpeg" alt="">
+            </div>
+            <div id="perfil-name-mail">
+                <p>{{nombreUsuario}}</p>
+                <p>{{correoUsuario}}</p>
+            </div>
+        </div>
+    </div>
+    <div id="perfil-content">
+        <div id="menu-lateral">
+            <ul>
+                <li><button type="button" (click)="mostrarOfertas()">Mis Ofertas</button></li>
+                <li><button type="button" (click)="mostrarSolicitudes()">Mis Solicitudes</button></li>
+            </ul>
+        </div>
+        <div class="menu-content" *ngIf="solicitudes">
+            <p>Solicitudes</p>
+            <app-perfil-ofertas [tabla]="tabla" [type]="type" />
+        </div>
+        <div class="menu-content" *ngIf="ofertas">
+            <p>Ofertas</p>
+        </div>
+    </div>
 </div>

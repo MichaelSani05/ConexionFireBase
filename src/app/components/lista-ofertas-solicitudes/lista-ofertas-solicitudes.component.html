@@ -94,6 +94,7 @@
             <span>{{item.fecha}}</span>
           </div>
           <button type="button">Contratar</button>
+          <button type="button" (click)="saveItem(item.id, 'savedRequests')">Guardar</button>
         </div>
       </ng-container>
     </li>

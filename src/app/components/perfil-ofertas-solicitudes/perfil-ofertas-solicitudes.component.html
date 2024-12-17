@@ -1,0 +1,101 @@
+<div id="filters">
+    <div class="filter">
+      <select (change)="onSelect($event)">
+        <option value="">Todos</option>
+        <option *ngFor="let item of uniquePoblaciones" [value]="item">{{ item }}</option>
+      </select>
+    </div>
+    <div class="filter" *ngIf="solicitud">
+      <input
+        type="text"
+        placeholder="Buscar capacidades"
+        (input)="onSearch($event)"
+      />
+    </div>
+    <div class="filter" *ngIf="oferta">
+      <input
+        type="text"
+        placeholder="Buscar requerimientos"
+        (input)="onSearch($event)"
+      />
+    </div>
+  </div>
+  <ul>
+      <li class="lista-O-S" *ngFor="let item of capacidadesExperiencia">
+        <ng-container *ngIf="oferta">
+          <h3>{{item.empleo}}</h3>
+          <div class="card-info nombre-email">
+            <div class="card-user-icon">
+              <img src="../../../assets/images/user-icon.jpeg" alt="">
+            </div>
+            <div class="card-nombre-email">
+              <span>{{item.empresa}}</span>
+              <span>{{item.email2}}</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-label">Población</span>
+            <span>{{item.poblacion2}}</span>
+          </div>
+          <div class="card-info">
+            <span class="card-label">Requerimientos</span>
+            <span>{{item.requerimientos}}</span>
+          </div>
+          <div class="card-info double-info">
+            <div class="c-infos">
+              <span class="card-label">Salario</span>
+              <span>{{item.salario}}</span>
+            </div>
+            <div>
+              <span class="card-label">Experiencia</span>
+              <span>{{item.experiencia}}</span>
+            </div>
+          </div>
+          <div class="card-date-button">
+            <div class="date">
+              <span class="card-label">Fecha</span>
+              <span>{{item.fecha}}</span>
+            </div>
+            <button type="button">Contratar</button>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="solicitud">
+          <h3>{{item.trabajo}}</h3>
+          <div class="card-info nombre-email">
+            <div class="card-user-icon">
+              <img src="../../../assets/images/user-icon.jpeg" alt="">
+            </div>
+            <div class="card-nombre-email">
+              <span>{{item.nombre}}</span>
+              <span>{{item.email}}</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-label">Población</span>
+            <span>{{item.poblacion}}</span>
+          </div>
+          <div class="card-info">
+            <span class="card-label">Capacidades</span>
+            <span>{{item.capacidades}}</span>
+          </div>
+          <div class="card-info double-info">
+            <div class="c-infos">
+              <span class="card-label">Teléfono</span>
+              <span>{{item.telefono}}</span>
+            </div>
+            <div>
+              <span class="card-label">Experiencia</span>
+              <span>{{item.experiencia}}</span>
+            </div>
+          </div>
+          <div class="card-date-button">
+            <div class="date">
+              <span class="card-label">Fecha</span>
+              <span>{{item.fecha}}</span>
+            </div>
+            <button type="button">Contratar</button>
+            <button type="button" (click)="saveItem(item.id, 'savedRequests')">Guardar</button>
+          </div>
+        </ng-container>
+      </li>
+  </ul>

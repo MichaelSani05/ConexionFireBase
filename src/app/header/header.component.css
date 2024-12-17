@@ -45,7 +45,7 @@ a{
     color: inherit;
 }
 
-#login{
+#login, #logOut{
     display: flex;
     align-items: center;
     position: absolute;
@@ -54,7 +54,7 @@ a{
     bottom: 50%;
 }
 
-#login button{
+#login button, #logOut button{
     height: 40px;
     background-color: #ACB68A;
     border: 1px solid #173513;

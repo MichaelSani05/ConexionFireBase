@@ -1,8 +1,72 @@
 #perfil-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: white;
-    height: 100vh;
+    width: 100%;
+    margin-top: 100px;
+}
+
+#perfil-banner{
+    position: relative;
+    height: 250px;
+    width: 100%;
+    background-image: linear-gradient(19deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%), url("../../../assets/images/banner-1.jpg");
+}
+
+#perfil-banner-content{
+    position: absolute;
+    bottom: -35px;
+    display: flex;
+    align-items: center;
+    left: 15%;
+    width: 75%;
+    margin: auto;
+}
+
+#perfil-image img{
+    width: 150px;
+    border-radius: 15px;
+}
+
+#perfil-name-mail{
+    font-size: 18pt;
+    margin-left: 20px;
+}
+
+#perfil-name-mail p{
+    margin: 0;
+}
+
+#perfil-content{
+    width: 100%;
+    max-width: 1325px;
+    padding: 50px 50px;
+    box-sizing: border-box;
+    height: 800px;
+    display: flex;
+    margin: auto;
+    background-color: white;
+}
+
+#menu-lateral ul, p{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    color: black;
+    margin-bottom: 10px;
+}
+
+li > button{
+    background-color: transparent;
+    border: none;
+}
+
+.menu-content{
+    width: 80%;
+    margin: 0px auto;
+    color: black;
+    box-sizing: border-box;
 }

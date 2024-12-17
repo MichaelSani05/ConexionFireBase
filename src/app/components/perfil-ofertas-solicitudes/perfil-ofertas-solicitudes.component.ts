@@ -5,15 +5,16 @@ import { SaveItemsService } from '../../services/solis-ofers.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-lista-ofertas',
+  selector: 'app-perfil-ofertas',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './lista-ofertas-solicitudes.component.html',
-  styleUrl: './lista-ofertas-solicitudes.component.css'
+  templateUrl: './perfil-ofertas-solicitudes.component.html',
+  styleUrl: './perfil-ofertas-solicitudes.component.css'
 })
-export class ListaOfertasComponent implements OnInit{
+export class PerfilOfertasComponent implements OnInit{
   @Input() tabla: any = ''
-  items: any[] = [];
+  @Input() type: any = ''
+  items?: any[] = [];
   capacidadesExperiencia: any[] = [];
   uniquePoblaciones: string[] = [];
   oferta: boolean = false
@@ -25,22 +26,28 @@ export class ListaOfertasComponent implements OnInit{
 
   constructor(private dataService: DataService, private saveItems: SaveItemsService, private authService: AuthService) {}
 
-  ngOnInit() {
-    this.dataService.getItems(this.tabla).subscribe({
-      next: (data) => {
-        this.items = data;
-        this.capacidadesExperiencia = data;
+  async ngOnInit() {
 
-        if (this.tabla === 'ofertas') {
-          this.uniquePoblaciones = [...new Set(data.map((item: any) => item.poblacion2))];
-        } else if (this.tabla === 'solicitudes') {
-          this.uniquePoblaciones = [...new Set(data.map((item: any) => item.poblacion))];
+    this.authService.getCurrentUser().subscribe({
+      next: (userProfile) => {
+        if (userProfile) {
+          this.currentUser = userProfile;
+          console.log(this.currentUser);
+          this.userId = userProfile.uid;
+          console.log(this.userId);
+          this.itemsGet();
         }
       },
       error: (error) => {
-        console.error('Error al recuperar datos', error);
+        console.error('Error al obtener usuario:', error);
       }
     });
+
+    if (this.tabla === 'ofertas') {
+      this.uniquePoblaciones = [...new Set(this.capacidadesExperiencia.map((item: any) => item.poblacion2))];
+    } else if (this.tabla === 'solicitudes') {
+      this.uniquePoblaciones = [...new Set(this.capacidadesExperiencia.map((item: any) => item.poblacion))];
+    }
 
     if (this.tabla === 'ofertas') {
       this.oferta = true;
@@ -52,21 +59,15 @@ export class ListaOfertasComponent implements OnInit{
       this.poblacion = "poblacion"
     }
 
-    this.authService.getCurrentUser().subscribe({
-      next: (userProfile) => {
-        if (userProfile) {
-          this.currentUser = userProfile;
-          console.log(this.currentUser);
-          this.userId = userProfile.uid;
-          console.log(this.userId);
-        }
-      },
-      error: (error) => {
-        console.error('Error al obtener usuario:', error);
-      }
-    });
 
+  }
 
+  async itemsGet(){
+    if (this.userId) {
+      this.items = await this.saveItems.getSavedItemDetails(this.userId, this.type);
+      console.log(this.items);
+      this.capacidadesExperiencia = await this.saveItems.getSavedItemDetails(this.userId, this.type);
+    }
   }
 
   onSelect(event: Event): void {
@@ -97,17 +98,17 @@ export class ListaOfertasComponent implements OnInit{
   onSearch(event: Event): void {
     const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
 
-    if (searchTerm != '' && this.solicitud == true) {
+    if (searchTerm != '' && this.solicitud == true && this.items) {
       this.capacidadesExperiencia = this.items.filter((solicitud) =>
         solicitud.capacidades.toLowerCase().includes(searchTerm)
       );
-    } else if (searchTerm != '' && this.oferta == true) {
+    } else if (searchTerm != '' && this.oferta == true && this.items) {
       this.capacidadesExperiencia = this.items.filter((solicitud) =>
         solicitud.requerimientos.toLowerCase().includes(searchTerm)
       );
     } 
     else {
-      this.capacidadesExperiencia = [...this.items];
+      this.capacidadesExperiencia = [this.items];
     }
   }
 

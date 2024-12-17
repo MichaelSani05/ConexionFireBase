@@ -1,0 +1,108 @@
+.lista-O-S{
+    padding: 30px 40px;
+    list-style: none;
+    background-color: #173513;
+    border-radius: 15px;
+    font-size: 12pt;
+    color: #D9D9D9;
+    transition: 0.2s all ease-in-out;
+}
+
+.lista-O-S:hover{
+    transform: scale(1.03);
+}
+
+h3{
+    margin: 0;
+    padding: 0;
+    color: #ACB68A;
+}
+
+ul{
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+    gap: 15px;
+}
+
+span{
+    display: flex;
+    font-weight: lighter;
+}
+
+.card-info{
+    margin: 15px 0px;
+}
+
+.card-label{
+    font-size: 12pt;
+    color: #ACB68A;
+}
+
+.double-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nombre-email{
+    display: flex;
+}
+
+.card-user-icon{
+    width: calc(15% + 5px);
+    border-radius: 50px;
+    overflow: hidden;
+    max-height: 55px;
+    max-width: 55px;
+}
+
+.card-user-icon img{
+    width: 100%;
+    height: 100%;
+}
+
+.card-nombre-email{
+    margin-left: 15px;
+}
+
+.card-date-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-date-button button{
+    width: 40%;
+    background-color: #ACB68A;
+    border-radius: 5px;
+    border: none;
+    color: #173513;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#filters{
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(175px,1fr));
+    gap: 15px;
+}
+
+select, input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #173513;
+}
+
+option{
+    padding: 10px 20px !important;
+    background-color: #ACB68A;
+    border: 1px solid #173513;
+    border-radius: 20px;
+    color: white;
+}
+
+option:hover, option:focus, option:active{
+    background-color: #173513 !important;
+}

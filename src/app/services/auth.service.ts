@@ -92,8 +92,9 @@ export class AuthService {
             
             if (snapshot.exists()) {
               const currentUser = snapshot.val() as UserProfile;
-              this.user.set(currentUser);
-              subscriber.next(currentUser);
+              const currentUserWithId = { id: user.uid, ...currentUser };
+              this.user.set(currentUserWithId);
+              subscriber.next(currentUserWithId);
             } else {
               this.user.set(null);
               subscriber.next(null);
