@@ -13,8 +13,10 @@ import { PerfilOfertasComponent } from '../../components/perfil-ofertas-solicitu
 export class PerfilComponent implements OnInit {
   nombreUsuario: any = ''
   correoUsuario: any = ''
-  tabla: string = 'solicitudes'
-  type: string = 'savedRequests'
+  tablaSoli: string = 'solicitudes'
+  typeSoli: string = 'savedRequests'
+  tablaOfer: string = 'ofertas'
+  typeOfer: string = 'savedOffers'
 
   solicitudes: boolean = false
   ofertas: boolean = false

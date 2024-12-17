@@ -47,11 +47,7 @@ export class SaveItemsService {
     return itemDetails;
   }
 
-  async removeFromUserProfile(
-    userId: string,
-    type: 'savedRequests' | 'savedOffers',
-    itemId: string
-  ): Promise<void> {
+  async removeFromUserProfile(userId: string, type: 'savedRequests' | 'savedOffers', itemId: string): Promise<void> {
     const userRef = ref(this.database, `users/${userId}/${type}`);
     const snapshot = await get(userRef);
 

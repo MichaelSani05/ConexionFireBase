@@ -19,10 +19,11 @@
         </div>
         <div class="menu-content" *ngIf="solicitudes">
             <p>Solicitudes</p>
-            <app-perfil-ofertas [tabla]="tabla" [type]="type" />
+            <app-perfil-ofertas [tabla]="tablaSoli" [type]="typeSoli" />
         </div>
         <div class="menu-content" *ngIf="ofertas">
             <p>Ofertas</p>
+            <app-perfil-ofertas [tabla]="tablaOfer" [type]="typeOfer" />
         </div>
     </div>
 </div>

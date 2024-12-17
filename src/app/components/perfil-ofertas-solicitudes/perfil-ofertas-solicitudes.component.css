@@ -106,3 +106,15 @@ option{
 option:hover, option:focus, option:active{
     background-color: #173513 !important;
 }
+
+.quitar-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 5px;
+    background-color: #ACB68A;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    color: #173513;
+}
