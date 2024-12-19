@@ -81,6 +81,16 @@ a{
     border: 1px solid #ACB68A;
 }
 
+#nav-toggle{
+    display: none;
+}
+
+#mobile-menu{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 /* ANIMACIONES */
 @keyframes nav {
     from{
@@ -108,10 +118,67 @@ a{
     }
 }
 
-
-@media screen and (max-width: 692px) {
+@media (max-width: 1100px){
     ul > a{
-        font-size: 9pt;
+        font-size: 12pt;
+    }
+
+    #login, #logOut{
+        right: 110px;
+    }
+
+    #perfil{
+        right: 40px;
+    }
+}
+
+@media (max-width: 890px) {
+    #nav-toggle{
+        display: flex;
+    }
+
+    #mobile-menu{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        left: 0;
+        height: 100vh;
+        background-color: #173513;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul{
+        flex-direction: column;
+        padding-left: 0;
+        order: 1;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+
+    #account{
+        order: 0;
+        display: flex;
+        box-sizing: border-box;
+        padding: 25px 30px;
+    }
+
+    #login, #logOut, #perfil{
+        position: inherit;
+    }
+
+    #perfil{
+        order: 0;
+        margin-right: 15px;
+    }
+
+    #login, #logOut{
+        order: 1;
+    }
+
+    ul > a{
+        font-size: 16pt;
     }
 
     nav{
