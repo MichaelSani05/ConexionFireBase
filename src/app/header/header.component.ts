@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit{
 
   userExist: boolean = false;
 
+  isMenuVisible: boolean = false;
   
   constructor(private route: ActivatedRoute, private authService: AuthService){
     effect(() => {
@@ -41,6 +42,11 @@ export class HeaderComponent implements OnInit{
 
   logout(){
     this.authService.logout();
+  }
+
+
+  toggleMenu(): void {
+    this.isMenuVisible = !this.isMenuVisible;
   }
 
 }

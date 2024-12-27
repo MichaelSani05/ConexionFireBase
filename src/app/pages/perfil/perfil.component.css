@@ -45,7 +45,6 @@
     height: 800px;
     display: flex;
     margin: auto;
-    background-color: white;
 }
 
 #menu-lateral ul, p{
@@ -69,4 +68,19 @@ li > button{
     margin: 0px auto;
     color: black;
     box-sizing: border-box;
+}
+
+#menu-lateral > ul > li > button{
+    font-size: 14pt;
+}
+
+@media (max-width: 860px){
+    #perfil-content{
+        display: block;
+    }
+
+    #menu-lateral ul{
+        display: flex;
+    }
+
 }

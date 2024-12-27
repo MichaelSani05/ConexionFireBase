@@ -118,3 +118,18 @@ option:hover, option:focus, option:active{
     cursor: pointer;
     color: #173513;
 }
+
+@media (max-width: 860px){
+    .lista-O-S{
+        padding: 15px 20px;
+        font-size: 8pt;
+    }
+
+    ul{
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .card-label{
+        font-size: 10pt;
+    }
+}

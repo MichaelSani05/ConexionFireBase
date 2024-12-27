@@ -4,7 +4,7 @@
             <img src="../../assets/images/LOGO_JMB.png" alt="">
         </a>
     </div>
-    <div id="mobile-menu">
+    <div id="mobile-menu" [ngClass]="{ 'menu-visible': isMenuVisible, 'menu-hidden': !isMenuVisible }">
         <ul>
             <a href="" [routerLink]="['']">
                 <li>Home</li>
@@ -35,6 +35,6 @@
         </div>
     </div>
     <div id="nav-toggle">
-        <button id="toggle" type="button">Menu</button>
+        <button id="toggle" type="button" (click)="toggleMenu()">Menu</button>
     </div>
 </nav>
