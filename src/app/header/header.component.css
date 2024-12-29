@@ -140,6 +140,11 @@ a{
     }
 }
 
+@media (min-width: 890px){
+    #mobile-menu{
+        display: flex !important;
+    }
+}
 @media (max-width: 890px) {
     #nav-toggle{
         display: flex;
