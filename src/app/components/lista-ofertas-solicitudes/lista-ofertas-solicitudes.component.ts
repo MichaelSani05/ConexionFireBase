@@ -66,7 +66,6 @@ export class ListaOfertasComponent implements OnInit{
       }
     });
 
-
   }
 
   onSelect(event: Event): void {

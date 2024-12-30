@@ -6,18 +6,10 @@
     </select>
   </div>
   <div class="filter" *ngIf="solicitud">
-    <input
-      type="text"
-      placeholder="Buscar capacidades"
-      (input)="onSearch($event)"
-    />
-  </div>
+    <input type="text" placeholder="Buscar capacidades" (input)="onSearch($event)" />
+    </div>
   <div class="filter" *ngIf="oferta">
-    <input
-      type="text"
-      placeholder="Buscar requerimientos"
-      (input)="onSearch($event)"
-    />
+    <input type="text" placeholder="Buscar requerimientos" (input)="onSearch($event)"/>
   </div>
 </div>
 <ul>

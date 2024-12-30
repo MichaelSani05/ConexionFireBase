@@ -132,4 +132,7 @@ option:hover, option:focus, option:active{
     .card-label{
         font-size: 10pt;
     }
+    .card-date-button button{
+        font-size: 12pt;
+    }
 }

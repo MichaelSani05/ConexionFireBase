@@ -75,12 +75,38 @@ li > button{
 }
 
 @media (max-width: 860px){
+    #perfil-container{
+        margin-top: 74px;
+    }
     #perfil-content{
         display: block;
     }
 
     #menu-lateral ul{
         display: flex;
+    }
+
+    #perfil-banner{
+        height: 200px;
+    }
+
+    #perfil-banner-content{
+        position: absolute;
+        bottom: -25px;
+        display: flex;
+        align-items: center;
+        left: 5%;
+        width: 75%;
+        margin: auto;
+    }
+    #perfil-image img{
+        width: 100px;
+        border-radius: 15px;
+    }
+    
+    #perfil-name-mail{
+        font-size: 12pt;
+        margin-left: 20px;
     }
 
 }
